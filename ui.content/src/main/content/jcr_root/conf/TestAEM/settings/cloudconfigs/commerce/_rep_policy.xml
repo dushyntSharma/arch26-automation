@@ -8,7 +8,7 @@
     <allow1
         jcr:primaryType="rep:GrantACE"
         rep:principalName="content-authors"
-        rep:privileges="{Name}[jcr:versionManagement,rep:write,crx:replicate,jcr:lockManagement]"/>
+        rep:privileges="{Name}[jcr:versionManagement,crx:replicate,rep:write,jcr:lockManagement]"/>
     <allow2
         jcr:primaryType="rep:GrantACE"
         rep:principalName="version-manager-service"

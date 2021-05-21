@@ -1,0 +1,251 @@
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="./style.css" />
+<style>
+form {
+	display: inline-block;
+	margin-left: 25%;
+	margin-right: 25%;
+	width: 50%;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	background-image: url("img.jpg");
+	background-size: cover;
+	background-position: center;
+	font-family: sans-serif;
+}
+
+form {
+	position: center;
+	background: #ffffff;
+	max-width: 500px;
+	padding: 45px;
+}
+
+input[type=text], input[type=password], select, textarea {
+	width: 50%;
+	padding: 12px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+	resize: vertical;
+}
+
+label {
+	padding: 12px 12px 12px 0;
+	display: inline-block;
+}
+
+input[type=submit] {
+	background-color: #4CAF50;
+	color: white;
+	padding: 12px 20px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+input[type="submit"]:hover {
+	cursor: pointer;
+	background: #39dc79;
+	color: #000;
+}
+
+div {
+	align-items: center;
+	padding: 2px;
+}
+
+a {
+	background-color: #4CAF50;
+	color: white;
+	padding: 2px;
+}
+
+.main-nav {
+	float: right;
+	list-style: none;
+	margin-top: 30px;
+}
+
+.main-nav li {
+	display: inline-block;
+}
+
+.main-nav li a {
+	color: white;
+	text-decoration: none;
+	padding: 5px 20px;
+	font-family: "Roboto", sans-serif;
+	font-size: 15px;
+}
+
+.main-nav li.active a {
+	border: 1px solid white;
+}
+
+.main-nav li a:hover {
+	border: 1px solid white;
+}
+</style>
+
+</head>
+<body>
+	<form name="myForm" id="myForm" action="RegisterStaff" method="post">
+
+
+		<h1>Admin Register</h1>
+		<div>
+			<label><b>Name:</b></label> <input type="text"
+				placeholder="Enter Name" name="name" id="names"> <span
+				class="error_form" id="namecheck"></span>
+		</div>
+		<div>
+			<label><b>Age:</b></label> <input type="text" placeholder="Enter age"
+				name="age" id="age"> <span class="error_form" id="ageC"></span>
+
+
+		</div>
+		<div>
+			<label><b>Address:</b></label> <input type="text"
+				placeholder="Enter your address" name="address" id="address">
+			<span class="error_form" id="addressC"></span>
+		</div>
+
+		<div>
+			<label><b>Email:</b></label> <input type="text"
+				placeholder="Enter your email" name="email" id="email"> <span
+				class="error_form" id="emailC"></span>
+		</div>
+		<div>
+			<label><b>Username:</b></label> <input type="text"
+				placeholder="Enter username" name="username" id="username">
+			<span class="error_form" id="usernameC"></span>
+		</div>
+
+		<div>
+			<label><b>Password:</b></label> <input type="password"
+				placeholder="Enter Password" name="password" id="password">
+			<span class="error_form" id="passC"></span>
+		</div>
+
+		<div>
+			<input type="submit" id="submit" value="Submit" />
+
+		</div>
+
+	</form>
+	<script type="text/javascript">
+		$(function() {
+
+			$("#namecheck").hide();
+			$("#ageC").hide();
+			$("#addressC").hide();
+
+			$("#emailC").hide();
+
+			var errorName = false;
+			var errorAge = false;
+			var errorAddress = false;
+
+			var errorEmail = false;
+
+			$("#names").focusout(function() {
+				nameCheck();
+			});
+			function nameCheck() {
+
+				var name = $("#names").val();
+				if (name !== '') {
+					$("#namecheck").hide();
+					$("#names").css("border-bottom", "2px solid #34F458");
+				} else {
+					$("#namecheck").html("Name cant be blank");
+					$("#namecheck").show();
+					$("#names").css("border-bottom", "2px solid #F90A0A");
+					errorName = true;
+				}
+			}
+
+			$("#age").focusout(function() {
+				ageC();
+			});
+			function ageC() {
+				var ages = $("#age").val();
+				if (ages !== '') {
+					$("#ageC").hide();
+					$("#age").css("border-bottom", "2px solid #34F458");
+				} else {
+					$("#ageC").html("Enter the Age");
+					$("#ageC").show();
+					$("#age").css("border-bottom", "2px solid #F90A0A");
+					errorAge = true;
+				}
+			}
+
+			$("#address").focusout(function() {
+				addressC();
+			});
+			function addressC() {
+				var addresss = $("#address").val();
+				if (addresss !== '') {
+					$("#addressC").hide();
+					$("#address").css("border-bottom", "2px solid #34F458");
+				} else {
+					$("#addressC").html("Address can't be blank");
+					$("#addressC").show();
+					$("#address").css("border-bottom", "2px solid #F90A0A");
+					errorAddress = true;
+				}
+			}
+
+			$("#email").focusout(function() {
+				emailC();
+			});
+			function emailC() {
+				var emails = $("#email").val();
+				if (emails !== '') {
+					$("#emailC").hide();
+					$("#email").css("border-bottom", "2px solid #34F458");
+				} else {
+					$("#emailC").html("Email should be filled");
+					$("#emailC").show();
+					$("#email").css("border-bottom", "2px solid #F90A0A");
+					errorEmail = true;
+				}
+			}
+
+			$("#myForm").submit(
+					function() {
+						errorName = false;
+						errorAge = false;
+						errorAddress = false;
+
+						errorEmail = false;
+
+						nameCheck();
+						ageC();
+						addressC();
+
+						emailC();
+						if (name == false && ages == false && addresss == false
+								&& cities == false && states == false
+								&& countries == false && emails == false) {
+							alert("Registration Successfull");
+							return true;
+						} else {
+							alert("Please Fill the form Correctly");
+							return false;
+						}
+
+					});
+		});
+	</script>
+
+</body>
+</html>
