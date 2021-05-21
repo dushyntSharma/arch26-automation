@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/apps/TestAEM/clientlibs"/>
+    <filter root="/apps/TestAEM/components"/>
+    <filter root="/apps/TestAEM/i18n"/>
+    <filter root="/apps/msm/TestAEM_blueprint" mode="merge"/>
+</workspaceFilter>
