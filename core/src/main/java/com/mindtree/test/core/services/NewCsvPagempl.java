@@ -10,6 +10,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import javax.jcr.Node;
+import javax.jcr.PathNotFoundException;
+import javax.jcr.RepositoryException;
+import javax.jcr.Session;
+
 import org.apache.sling.api.resource.LoginException;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
@@ -112,6 +117,7 @@ public class NewCsvPagempl implements NewCsvPageCreate {
 		List<Page> pagesCreated = new LinkedList<>();
 		List<PageModel> pageProperties = getCsvContent(); // excluded the csv for now
 		LOG.info("******************        Hi i am comming from create Page *******************************");
+		Session session = resourceResolver.adaptTo(Session.class);
 
 		PageManager pageManager = resourceResolver.adaptTo(PageManager.class);
 		Page page;
@@ -130,13 +136,37 @@ public class NewCsvPagempl implements NewCsvPageCreate {
 				Page page1 = pageManager.create(pageModel.getPageParent(), pageModel.getPageName(),
 						pageModel.getPageTemplate(), pageModel.getPageTitle());
 
-				LOG.info("*+=+++++++=+=++++++++ hi iam from imple try block after create page  ++===============***");
+				Node node;
+				try {
+					node = (Node) session.getItem(page1.getPath() + "/jcr:content");
+
+					if (node != null) {
+						LOG.info(node.getName());
+						node.setProperty("jcr:description", "this it the page created using csv file reader");
+						node.setProperty("pageTitle", "CSV page title");
+						node.setProperty("navTitle", "csv nav title");
+						session.save();
+					} else {
+						LOG.info("Node is null");
+					}
+
+				} catch (PathNotFoundException e) {
+					e.printStackTrace();
+				} catch (RepositoryException e) {
+					e.printStackTrace();
+				}
+
+//					Node node = page.adaptTo(Node.class);
+//					Node jcrContent = node.getNode("/jcr:content");
+
 				if (page1 != null) {
 					pagesCreated.add(page1);
 				}
 			}
 			return pagesCreated;
-		} catch (WCMException e) {
+		} catch (
+
+		WCMException e) {
 			LOG.error("Page not created");
 		}
 		return Collections.emptyList();
