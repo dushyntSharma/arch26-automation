@@ -1,0 +1,8 @@
+name,templatePath,title,description,pageParent
+product one,/conf/TestAEM/settings/wcm/templates,product one title,product one description,/content/TestAEM/us/en
+product two,/conf/TestAEM/settings/wcm/templates,product two title,product two description,/content/TestAEM/us/en
+product three,/conf/TestAEM/settings/wcm/templates,product three title,product three decsription,/content/TestAEM/us/en
+product four,/conf/TestAEM/settings/wcm/templates,product four title,product four description,/content/TestAEM/us/en
+product five,/conf/TestAEM/settings/wcm/templates,product five title,product five description,/content/TestAEM/us/en
+product six,/conf/TestAEM/settings/wcm/templates,product six title,product six description,/content/TestAEM/us/en
+product seven,/conf/TestAEM/settings/wcm/templates,product seven,product seven description,/content/TestAEM/us/en
