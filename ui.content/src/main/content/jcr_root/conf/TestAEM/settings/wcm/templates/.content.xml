@@ -5,4 +5,10 @@
     <page-content/>
     <xf-web-variation/>
     <rep:policy/>
+    <osgi-config-coding-challenge/>
+    <loginpage/>
+    <sign-up/>
+    <experience-fragment-coding-challenge/>
+    <homepage/>
+    <practise-workspace/>
 </jcr:root>

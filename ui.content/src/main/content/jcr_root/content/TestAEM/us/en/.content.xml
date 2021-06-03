@@ -87,4 +87,19 @@
             cq:rolloutConfigs="[/libs/msm/wcm/rolloutconfigs/default]"
             jcr:primaryType="cq:LiveCopy"/>
     </jcr:content>
+    <Coding/>
+    <Loginpage/>
+    <HomePage/>
+    <SignUp/>
+    <EF/>
+    <PractiseWorkspace/>
+    <CsvPage/>
+    <ServletResourceTypeTest/>
+    <productone/>
+    <producttwo/>
+    <productthree/>
+    <productfour/>
+    <productfive/>
+    <productsix/>
+    <productseven/>
 </jcr:root>

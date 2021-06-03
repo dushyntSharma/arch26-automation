@@ -174,8 +174,7 @@
             %><div class="loginerror"><%=xssAPI.encodeForHTML(i18n.getVar(reason))%></div>
 <%      }
 
-%>
-<style>
+%><style>
 
     body {
 	margin: 0;
@@ -289,7 +288,6 @@ a {
         </tr>
     </table>
 </form>
-</center>
 <%
     }
 %>

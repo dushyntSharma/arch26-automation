@@ -1,0 +1,16 @@
+<h1>CSV File Reading</h1>
+
+<div data-sly-use.model="com.mindtree.test.core.models.PractiseCSVModel"></div>
+
+<p>=================================================================================================</p>
+
+<h3>CSV File reading using the one Single String function</h3>
+<div>${model.cSVFile}</div>
+
+<p>=================================================================================================</p>
+<h3>CSV File reading using the Buffered reader</h3>
+<div data-sly-list.item="${model.page}">
+	<li>${item}</li>
+</div>
+
+<p>=================================================================================================</p>

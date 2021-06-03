@@ -1,0 +1,2 @@
+pageName,pageTemplate,pageTitle,pageParent
+CsvPage,/conf/TestAEM/settings/wcm/templates,CsvPageCretion,/content/TestAEM/us/en
